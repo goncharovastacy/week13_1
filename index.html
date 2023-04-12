@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="inputs">
+        <h3>Оставьте ваш комментарий:</h3>
+        <form>
+          <label>Введите ваше ФИО:</label>
+          <input type="text" id="name" />
+        </form>
+        <form>
+          <label>Показывать ваше имя в комментарии?</label>
+          <label for=""><input type="checkbox" id="yes" />Да</label>
+          <label for=""><input type="checkbox" id="no" />Нет</label>
+        </form>
+        <form>
+          <label>Укажите ссылку на ваш аватар:</label>
+          <input type="url" id="link" />
+        </form>
+        <form>
+          <label>Ваш комментарий:</label>
+          <textarea id="comment" cols="20" rows="7"></textarea>
+        </form>
+        <button id="button">Отправить</button>
+      </div>
+      <div class="result-wrapper">
+        <h3>Комментарии:</h3>
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
