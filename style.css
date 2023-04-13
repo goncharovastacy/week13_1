@@ -32,6 +32,16 @@
     align-items: center;
 }
 
+.user-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
 #commentresult {
     max-width: 400px;
+}
+
+.date p {
+    color: rgb(116, 116, 116);
 }

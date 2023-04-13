@@ -29,29 +29,73 @@ function leaveComment () {
     let checkboxNo = document.getElementById('no');
     
     let userImage;
-        if (link.value == '') {
-            //этот не может найти
+        if (link === '') {
             let rand = Math.floor(Math.random() * defaultUserImages.length);
             userImage = defaultUserImages[rand];
         }
         else {
             userImage = link;
         }
-//условия
-    if (fullName.value == '' || checkboxNo.checked) {userFullName = "username";}
+
+    if (fullName === '' || checkboxNo.checked) {userFullName = "username";}
     else if (checkboxYes.checked){
         userFullName = addName(fullName);
     } 
-    //тут не работает
-    else if (checkboxYes.checked && fullName.value == '') {userFullName = "username";}
+    else if (checkboxYes.checked && fullName === '') {userFullName = "username";}
     else {userFullName = "username";}
 
-    let parentDiv = document.getElementById('result');
-parentDiv.innerHTML = parentDiv.innerHTML + `<div class="user">
-<img src="${userImage}" alt="" id="img" /><h4 id="username">${userFullName}</h4>
-</div><p id="commentresult">${commentResult}</p>`;
-}
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
 
+    if (month < 10){
+        month = '0' + month;
+    }
+
+    if (minutes < 10){
+        minutes = '0' + minutes;
+    }
+
+    let weekDay;
+    switch(date.getDay()){
+        case 0:
+            weekDay = 'Воскресенье';
+            break;
+        case 1:
+            weekDay = 'Понедельник';
+            break;
+        case 2:
+            weekDay = 'Вторник';
+            break;
+        case 3:
+            weekDay = 'Среда';
+            break;
+        case 4:
+            weekDay = 'Четверг';
+            break;
+        case 5:
+            weekDay = 'Пятница';
+            break;
+        case 6:
+            weekDay = 'Суббота';
+            break;
+        default:
+            weekDay = 'День недели';
+    }
+
+    let parentDiv = document.getElementById('result');
+parentDiv.innerHTML = parentDiv.innerHTML + `<div class="user-wrapper">
+<div class="user">
+  <img src="${userImage}" alt="" id="img" />
+  <h4 id="username">${userFullName}</h4>
+</div>
+<div class="date"><p>${weekDay} ${day}.${month}.${year} в ${hours}:${minutes}</p></div>
+</div>
+<p id="commentresult">${commentResult}</p>`;
+}
 button.addEventListener('click', leaveComment);
 
 
