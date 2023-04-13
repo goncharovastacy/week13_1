@@ -39,8 +39,8 @@ function leaveComment () {
 
     if (fullName === '' || checkboxNo.checked) 
     {
-        
-        userFullName = "username";}
+        userFullName = "username";
+    }
     else if (checkboxYes.checked) {
         userFullName = addName(fullName);
     } 
