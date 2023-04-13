@@ -37,12 +37,20 @@ function leaveComment () {
             userImage = link;
         }
 
-    if (fullName === '' || checkboxNo.checked) {userFullName = "username";}
-    else if (checkboxYes.checked){
+    if (fullName === '' || checkboxNo.checked) 
+    {
+        
+        userFullName = "username";}
+    else if (checkboxYes.checked) {
         userFullName = addName(fullName);
     } 
-    else if (checkboxYes.checked && fullName === '') {userFullName = "username";}
-    else {userFullName = "username";}
+    else if (checkboxYes.checked && fullName === '') 
+    {
+        userFullName = "username";
+    }
+    else {
+        userFullName = "username";
+    }
 
     let date = new Date();
     let day = date.getDate();
@@ -92,11 +100,8 @@ parentDiv.innerHTML = parentDiv.innerHTML + `<div class="user-wrapper">
   <img src="${userImage}" alt="" id="img" />
   <h4 id="username">${userFullName}</h4>
 </div>
-<div class="date"><p>${weekDay} ${day}.${month}.${year} в ${hours}:${minutes}</p></div>
+<div class="date"><p>${weekDay}, ${day}.${month}.${year} в ${hours}:${minutes}</p></div>
 </div>
 <p id="commentresult">${commentResult}</p>`;
 }
 button.addEventListener('click', leaveComment);
-
-
-
