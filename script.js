@@ -1,4 +1,11 @@
 const button = document.getElementById('button');
+const defaultUserImages = [
+    "/assets/images/user1.jpg",
+    "/assets/images/user2.jpg",
+    "/assets/images/user3.jpg",
+    "/assets/images/user4.jpg",
+    "/assets/images/user5.jpg"
+];
 
 function addName (name) {
     
@@ -14,13 +21,22 @@ function checkSpam (text) {
 
 function leaveComment () {
     const fullName = document.getElementById('name').value;
-const link = document.getElementById('link').value;
-const comment = document.getElementById('comment').value;
+    const link = document.getElementById('link').value;
+    const comment = document.getElementById('comment').value;
     let userFullName;
     let commentResult = checkSpam(comment);
     let checkboxYes = document.getElementById('yes');
     let checkboxNo = document.getElementById('no');
-
+    
+    let userImage;
+        if (link.value == '') {
+            //этот не может найти
+            let rand = Math.floor(Math.random() * defaultUserImages.length);
+            userImage = defaultUserImages[rand];
+        }
+        else {
+            userImage = link;
+        }
 //условия
     if (fullName.value == '' || checkboxNo.checked) {userFullName = "username";}
     else if (checkboxYes.checked){
@@ -32,7 +48,7 @@ const comment = document.getElementById('comment').value;
 
     let parentDiv = document.getElementById('result');
 parentDiv.innerHTML = parentDiv.innerHTML + `<div class="user">
-<img src="${link}" alt="" id="img" /><h4 id="username">${userFullName}</h4>
+<img src="${userImage}" alt="" id="img" /><h4 id="username">${userFullName}</h4>
 </div><p id="commentresult">${commentResult}</p>`;
 }
 
