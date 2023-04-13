@@ -1,10 +1,10 @@
 const button = document.getElementById('button');
 const defaultUserImages = [
-    "../assets/images/user1.jpg",
-    "../assets/images/user2.jpg",
-    "../assets/images/user3.jpg",
-    "../assets/images/user4.jpg",
-    "../assets/images/user5.jpg"
+    "./assets/images/user1.jpg",
+    "./assets/images/user2.jpg",
+    "./assets/images/user3.jpg",
+    "./assets/images/user4.jpg",
+    "./assets/images/user5.jpg"
 ];
 
 function addName (name) {
