@@ -25,9 +25,10 @@ function leaveComment () {
     const comment = document.getElementById('comment').value;
     let userFullName;
     let commentResult = checkSpam(comment);
-    let checkboxYes = document.getElementById('yes');
-    let checkboxNo = document.getElementById('no');
+    let radioButtonYes = document.getElementById('yes');
+    let radioButtonNo = document.getElementById('no');
     
+  //добавление фото
     let userImage;
         if (link === '') {
             let rand = Math.floor(Math.random() * defaultUserImages.length);
@@ -37,14 +38,15 @@ function leaveComment () {
             userImage = link;
         }
 
-    if (fullName === '' || checkboxNo.checked) 
+  //добавление имени
+    if (fullName === '' || radioButtonNo.checked) 
     {
         userFullName = "username";
     }
-    else if (checkboxYes.checked) {
+    else if (radioButtonYes.checked) {
         userFullName = addName(fullName);
     } 
-    else if (checkboxYes.checked && fullName === '') 
+    else if (radioButtonYes.checked && fullName === '') 
     {
         userFullName = "username";
     }
@@ -52,6 +54,7 @@ function leaveComment () {
         userFullName = "username";
     }
 
+  //добавление даты
     let date = new Date();
     let day = date.getDate();
     let month = date.getMonth() + 1;
